@@ -1,0 +1,1081 @@
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+$baseFont: 16px;
+@mixin font-size($font-size) {
+    font-size: ($font-size / $baseFont) + em;
+}
+
+@mixin responsive-font-size($min-font-size, $max-font-size, $min-screen-width, $max-screen-width, $font-size-step: 0.1em) {
+    font-size: $max-font-size;
+    @media all and (max-width: $min-screen-width) {
+        font-size: $min-font-size;
+    }
+    @if $font-size-step <=0 {
+        @warn "parameter to responsive-font-size: font-size-step must be greater than 0";
+    }
+    @else {
+        $min-scale-factor: $min-font-size / $min-screen-width / 1em * 1px;
+        $max-scale-factor: $max-font-size / $max-screen-width / 1em * 1px;
+        $screen-width: round($max-screen-width);
+        $font-size: $max-font-size;
+        @while $screen-width>=$min-screen-width {
+            $progress: ($screen-width - $min-screen-width) / ($max-screen-width - $min-screen-width);
+            $scale-factor: $min-scale-factor + $progress * ($max-scale-factor - $min-scale-factor);
+            $font-size: $screen-width * $scale-factor / 1px * 1em;
+            @media all and (max-width: $screen-width) {
+                font-size: $font-size;
+            }
+            $screen-width-step: $font-size-step / $scale-factor / 1em * 1px;
+            @if $screen-width-step < 1px {
+                $screen-width-step: 1px;
+            }
+            $screen-width: round($screen-width - $screen-width-step);
+        }
+    }
+}
+
+
+//color//
+$blue: #26a5de;
+$white: #fff;
+$grey1: #aaaaaa;
+$lgrey: #f7f7f7;
+$dblue: #182f45;
+//font//
+$montserrat: 'Montserrat', sans-serif;
+
+.contact-header{
+    background-color: #26a5de;
+}
+
+.cstm-container{
+    max-width: 1550px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+}
+
+.cstm-container-md{
+    max-width: 1440px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+}
+
+.xs-text{
+    font-size: 10px;
+    font-family: $montserrat;
+    color: $white;
+}
+
+.md-text{
+    font-size: 14px;
+    font-family: $montserrat;
+    color: $white;
+    font-weight: 500;
+}
+
+.lgrey-bg{
+    background-color: $lgrey;
+}
+
+.nav-section{
+    box-shadow: 3.536px 3.536px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand{
+    img{
+        max-width: 260px;
+    }
+}
+
+.navbar{
+    .nav-item{
+        font-size: 16px;
+        font-family: $montserrat;
+        font-weight: 600!important;
+        text-transform: uppercase;
+        margin-right: 5px;
+        a{
+            color: #000;
+        }
+        .active{
+            color: #26a5de!important;
+        }
+        .get-quoted{
+            height: 42px;
+            min-width: 180px;
+            background-color: $blue;
+            border: none;
+            border-radius: 20px;
+            font-weight: 700;
+            color: $white;
+        }
+        .fa{
+            color: $blue;
+        }
+    }
+    .navbar-nav{
+        flex-wrap: wrap;
+    }
+}
+
+.navbar-collapse{
+    flex-grow: 0!important;
+}
+
+//font-colors//
+.white{
+    color: $white!important;
+}
+
+.dblue{
+    color: $dblue!important;
+}
+
+.lblue{
+    color: $blue!important;
+}
+
+//font-size//
+.cstm-h1{
+    font-family: $montserrat;
+    font-weight: 800!important;
+    line-height: 1.1!important;
+    $size: (58px / $baseFont) + 0em;
+    @include responsive-font-size (2em,
+    $size,
+    640px,
+    1200px,
+    0.1em);
+}
+
+.cstm-h1v2{
+    font-family: $montserrat;
+    font-weight: 800!important;
+    line-height: 1.1!important;
+    $size: (52px / $baseFont) + 0em;
+    @include responsive-font-size (1.9em,
+    $size,
+    640px,
+    1200px,
+    0.1em);
+}
+
+.cstm-h2{
+    font-family: $montserrat;
+    font-weight: 800!important;
+    line-height: 1.1!important;
+    $size: (40px / $baseFont) + 0em;
+    @include responsive-font-size (1.8em,
+    $size,
+    640px,
+    1200px,
+    0.1em);
+}
+
+.cstm-h3{
+    $size: (32px / $baseFont) + 0em;
+    @include responsive-font-size (1.4em,
+    $size,
+    640px,
+    1200px,
+    0.1em);
+    font-family: $montserrat;
+    font-weight: 600!important;
+    a{
+        color: $blue;
+    }
+}
+
+.cstm-h4{
+    $size: (26px / $baseFont) + 0em;
+    @include responsive-font-size (1.25em,
+    $size,
+    640px,
+    1200px,
+    0.1em);
+    font-family: $montserrat;
+    color: #7f8185;
+    a{
+        color: $blue;
+    }
+}
+
+.cstm-h5{
+    $size: (22px / $baseFont) + 0em;
+    @include responsive-font-size (1.25em,
+    $size,
+    640px,
+    1200px,
+    0.1em);
+    font-family: $montserrat;
+    color: #7f8185;
+    line-height: 2;
+    a{
+        color: $blue;
+    }
+}
+
+
+
+.blog-text{
+    $size: (18px / $baseFont) + 0em;
+    @include responsive-font-size (1em,
+    $size,
+    640px,
+    1200px,
+    0.17em);
+    font-family: $montserrat;
+    line-height: 1.8;
+    a{
+        color: $blue;
+        text-decoration: none;
+    }
+}
+
+.cstm-p{
+    $size: (21px / $baseFont) + 0em;
+    @include responsive-font-size (1.2em,
+    $size,
+    640px,
+    1200px,
+    0.17em);
+    font-family: $montserrat;
+    color: #7f8185;
+    line-height: 2;
+}
+
+.cstm-p2{
+    $size: (21px / $baseFont) + 0em;
+    @include responsive-font-size (1.2em,
+    $size,
+    640px,
+    1200px,
+    0.17em);
+    font-family: $montserrat;
+    color: #7f8185;
+    line-height: 1;
+}
+
+.fw-500{
+    font-weight: 500!important;
+}
+
+
+//hero//
+.hero-section{
+    background-image: url('../img/banner-img.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 900px;
+    position: relative;
+    z-index: 1;
+
+
+
+    .header-form{
+        background-color: rgba(24, 47, 69, 0.8);
+        width: 530px;
+        max-width: 100%;
+        border-radius: 15px;
+        .cstm-form{
+            font-family: $montserrat;
+            input{
+                height: 53px;
+                width: 49%;
+                padding: 5px 15px;
+                font-size: 14.63px;
+                color: $grey1;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                margin-bottom: 20px;
+                ::placeholder{
+                    text-transform: uppercase;
+                }
+            }
+            textarea{
+                width: 100%;
+                padding: 5px 15px;
+                font-size: 14.63px;
+                color: $grey1;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                margin-bottom: 20px;
+                ::placeholder{
+                    text-transform: uppercase;
+                }
+            }
+            select{
+                height: 53px;
+                width: 100%;
+                padding: 5px 15px;
+                font-size: 14.63px;
+                color: $grey1;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+.hero-banner{
+    min-height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom: 13px solid #26a5de;
+    .cstm-container{
+        width: 100%;
+    }
+}
+
+.success-section{
+    background-image: url('../img/about-us/main-page/about-main-bg.png');
+    background-position: top center;
+    background-size: cover;
+}
+
+#about-us-main{
+    background-image: url('../img/about-us/main-page/banner-img.png');
+}
+
+#meet-the-team-main{
+    background-image: url('../img/about-us/meet-the-team/meet-the-team-banner.png');
+}
+
+#primetime-culture-main{
+    background-image: url('../img/about-us/primetime-culture/primetime-culture-banner.png');
+}
+
+#why-choose-us-main{
+    background-image: url('../img/about-us/why-choose-us/why-choose-us-banner.png');
+}
+
+.blue-border-left{
+    border-left: 4px solid #26a5de;
+}
+
+
+.section-two{
+    background-image: url('../img/bg-2.png');
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    margin-top: -50px;
+    .lh-2{
+        line-height: 1.8
+    }
+    .services{
+        font-weight: 500;
+        .svc-icon{
+            min-width: 55px;
+            text-align: center;
+        }
+        .service-icon-col{
+            width: 33.33%;
+        }
+    }
+}
+
+.with-hover-1{
+    background-size: cover;
+    background-position: center;
+}
+
+.cstm-blue-btn1{
+    background-color: $dblue;
+    border-radius: 25px;
+    min-height: 60px;
+    color: $white;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    $size: (26px / $baseFont) + 0em;
+    @include responsive-font-size (1em,
+    $size,
+    640px,
+    1200px,
+    0.1em);
+    font-family: $montserrat;
+    border: none;
+    transition: transform 0.5s;
+    &:hover{
+        transform: scale(1.05);
+    }
+}
+
+.cstm-blue-btn2{
+    background-color: #26a5de;
+    border-radius: 25px;
+    min-height: 60px;
+    color: $white;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    $size: (26px / $baseFont) + 0em;
+    @include responsive-font-size (1em,
+    $size,
+    640px,
+    1200px,
+    0.1em);
+    font-family: $montserrat;
+    border: none;
+    transition: transform 0.5s;
+    &:hover{
+        transform: scale(1.05);
+    }
+} 
+
+.cstm-sm-text{
+    color: $white;
+    width: 100%;
+    $size: (18px / $baseFont) + 0em;
+    @include responsive-font-size (1em,
+    $size,
+    640px,
+    1200px,
+    0.1em);
+    font-family: $montserrat;
+}
+
+#left-section{
+    background-image: url('../img/christin-hume-hBuwVLcYTnA-unsplash-1.jpg');
+}
+#right-section{
+    background-image: url('../img/docusign-xo3fdXgTJP8-unsplash-1.png');
+}
+
+.card-row{
+    .cstm-card{
+        min-height: 450px;
+        border-bottom: 10px solid $blue;
+        width: 24.5%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        .cstm-card-wrapper{
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            height: 100%;
+            transition: 0.7s;
+            .card-text{
+                $size: (26px / $baseFont) + 0em;
+                @include responsive-font-size (1.1em,
+                $size,
+                640px,
+                1200px,
+                0.1em);
+                font-weight: 600!important;
+                color: $white;
+                font-family: $montserrat;
+                text-align: right;
+                line-height: 1.2;
+                transition: transform 0.5s;
+            }
+            &:hover{
+                background-color: rgba(0, 0, 0, 0.5);
+                .card-text{
+                    transform: translateY(-5px);
+                }
+            }
+        }
+    }
+
+    #card-1{
+        background-image: url('../img/svc-1.png');
+    }
+    #card-2{
+        background-image: url('../img/svc-2.png');
+    }
+    #card-3{
+        background-image: url('../img/svc-3.png');
+    }
+    #card-4{
+        background-image: url('../img/svc-4.png');
+    }
+    #card-5{
+        background-image: url('../img/svc-5.png');
+    }
+    #card-6{
+        background-image: url('../img/svc-6.png');
+    }
+    #card-7{
+        background-image: url('../img/svc-7.png');
+    }
+    #card-8{
+        background-image: url('../img/svc-8.png');
+    }
+    #card-9{
+        background-image: url('../img/svc-9.png');
+    }
+    #card-10{
+        background-image: url('../img/svc-10.png');
+    }
+    #card-11{
+        background-image: url('../img/svc-11.png');
+    }
+    
+    .no-border{
+        border-bottom: none!important;
+    }
+}
+
+.top-10-sec{
+    background-image: url('../img/top-10-bg.png');
+    background-size: 100% 100%;
+    background-position: center;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.video-section{
+    margin-top: -120px;
+}
+
+
+.testimonials{
+    background-image: url('../img/testimonial-bg.png');
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    .testimonial-container{
+        max-width: 983px;
+        margin: auto;
+        background-color: $white;
+        min-height: 446px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        .testimonial-icon{
+            max-width: 116px;
+        }
+        .testimonial-stars{
+            max-width: 283px;
+        }
+    }
+    a{
+        border-bottom: none!important;
+        text-decoration: none;
+    }
+    .owl-carousel{
+        // .testimonial-img{
+        //     margin-top: -60px;
+        // }
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 100%;
+        margin: auto;
+        display: block!important;
+        .prev-slide{
+        height: 50px;
+        width: 50px;
+        background-image: url('../img/prev-icon.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: absolute;
+        transform: translateY(-190px);
+        left: 0px;
+        opacity: 70%;
+        }
+        .prev-slide:hover{
+          opacity: 100%;
+        }
+        .next-slide{
+        height: 50px;
+        width: 50px;
+        background-image: url('../img/next-icon.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: absolute;
+        right: 0px;
+        transform: translateY(-190px);
+        opacity: 70%;
+        }
+        .next-slide:hover{
+          opacity: 100%;
+        }
+        .owl-dots{
+          display: none;
+        }
+        .owl-nav{
+            display: block!important;
+        }
+      }
+      
+}
+
+.logo-section{
+    background-image: url('../img/logo-bg.png');
+    background-size: cover;
+    background-position: center;
+    .logo-container{
+        .owl-carousel.owl-two{
+            // .testimonial-img{
+            //     margin-top: -60px;
+            // }
+            .owl-stage-outer{
+                max-width: 1250px;
+                margin: auto;
+            }
+            padding-top: 20px;
+            padding-bottom: 20px;
+            width: 100%;
+            margin: auto;
+            display: block!important;
+            .prev-slide{
+            height: 50px;
+            width: 50px;
+            background-image: url('../img/prev-icon.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            transform: translateY(-100px);
+            left: 0px;
+            opacity: 70%;
+            }
+            .prev-slide:hover{
+              opacity: 100%;
+            }
+            .next-slide{
+            height: 50px;
+            width: 50px;
+            background-image: url('../img/next-icon.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            right: 0px;
+            transform: translateY(-100px);
+            opacity: 70%;
+            }
+            .next-slide:hover{
+              opacity: 100%;
+            }
+            .owl-dots{
+              display: none;
+            }
+            .owl-nav{
+                display: block!important;
+            }
+            .owl-item{
+                .img-container{
+                    max-height: 90px!important;
+                    img{
+                        height: 90px;
+                        max-width: auto!important;
+                    }
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.mid-banner-section{
+    min-height: 525px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    .cstm-container{
+        width: 100%;
+    }
+}
+
+#about-main-mid{
+    background-image: url('../img/about-us/main-page/mid-img.png');
+}
+
+.blue-text-bg{
+    background-color: $blue;
+    color: $white;
+    padding: 10px 15px;
+    font-family: $montserrat;
+    font-weight: 800!important;
+    line-height: 1.1!important;
+    $size: (40px / $baseFont) + 0em;
+    @include responsive-font-size (1.8em,
+    $size,
+    640px,
+    1200px,
+    0.1em);
+    max-width: 440px;
+}
+
+// .slick-arrow{
+//     display: none!important;
+// }
+
+.slick-slide{
+    display: flex;
+    img{
+        padding-left: 35px;
+        padding-right: 35px;
+        padding-top: 35px;
+    }
+    .slider-text{
+        $size: (21px / $baseFont) + 0em;
+        @include responsive-font-size (1.2em,
+        $size,
+        640px,
+        1200px,
+        0.17em);
+        text-align: center;
+        line-height: 1;
+        color: $blue;
+        font-family: $montserrat;
+    }
+}
+
+.slick-slider{
+    align-items: center!important;
+}
+
+.prev{
+    display: block;
+    height: 35px;
+    width: 35px;
+    transform: translateY(-45px);
+  }
+
+  .next{
+    display: block;
+    height: 35px;
+    width: 35px;
+    transform: translateY(-45px);
+  }
+
+.slick-list{
+    min-height: 400px;
+}
+
+.slick-center{
+    img{
+        padding-left: 15px!important;
+        padding-right: 15px!important;
+        padding-top: 5px!important;
+    }
+    .slider-text{
+        $size: (30px / $baseFont) + 0em;
+        @include responsive-font-size (1.3em,
+        $size,
+        640px,
+        1200px,
+        0.17em);
+    }
+}
+
+.blog-section{
+    background-image: url('../img/blog-bg.png');
+    background-color: #f7f7f7;
+    background-size: cover;
+    background-position: top;
+}
+
+.blog-section-2{
+    background-image: url('../img/about-us/main-page/blog-bg-2.png');
+    background-size: 100% auto;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.newsletter-section{
+    background-image: url('../img/before-footer-bg.png');
+    background-size: cover;
+    background-position: top;
+    .newsletter-form{
+        .input-container{
+            width: 70%;
+            input{
+                width: 100%;
+                border: none;
+                padding: 20px 30px;
+                border-bottom-left-radius: 50px;
+                border-top-left-radius: 50px;
+                outline: none;
+            }
+        }
+        .news-btn{
+            width: 30%;
+            .newsletter-btn{
+                width: 100%;
+                min-height: 64px;
+                background-color: $dblue;
+                border-top-right-radius: 50px;
+                border-bottom-right-radius: 50px;
+                $size: (26px / $baseFont) + 0em;
+                @include responsive-font-size (1em,
+                $size,
+                640px,
+                1200px,
+                0.1em);
+                border: none;
+                font-family: $montserrat;
+            }
+        }
+    }
+}
+
+.newsletter-section-v2{
+    background-image: url('../img/before-footer-v2.png');
+    background-size: cover;
+    background-position: top;
+}
+
+.footer-links{
+    li{
+        a.nav-link{
+                color: $white!important;
+                font-weight: 500!important; 
+        }
+    }
+}
+
+.copyright{
+    background-image: url('../img/copyright-img.png');
+    background-size: cover;
+    background-position: center;
+    font-size: 20px;
+    color: $white;
+    font-family: $montserrat;
+}
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: $dblue;
+    color: white;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+  }
+  
+  #myBtn:hover {
+    background-color: $blue;
+    color: #fff;
+    transition: all 900ms ease 0ms;
+  }
+  #myBtn::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+  }
+  #myBtn:active {
+    background-color: #555;
+  }
+
+  .grey-divider{
+    height: 3px;
+    background-color: #f7f7f7;
+    width: 100%;
+  }
+
+  .team-members{
+    background-image: url('../img/about-us/meet-the-team/meet-the-team-bg-1.jpg');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+
+  .team-member-img{
+    max-width: 339px;
+    img{
+        max-height: 308px;
+        box-shadow: 2px 4px #f7f7f7;
+    }
+  }
+
+  .single-testimonial{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    .single-testimonial-text{
+      $size: (28px / $baseFont) + 0em;
+      @include responsive-font-size (1.4em,
+      $size,
+      640px,
+      1200px,
+      0.1em);
+      font-family: $montserrat;
+      font-weight: 500!important;
+    }
+  }
+
+  #testimonial-1{
+    background-image: url('../img/about-us/meet-the-team/Testimonial-1.png');
+  }
+
+  #testimonial-2{
+    background-image: url('../img/about-us/meet-the-team/Testimonial-2.png');
+  }
+
+  #testimonial-3{
+    background-image: url('../img/about-us/meet-the-team/Testimonial-3.png');
+  }
+
+  .testimonial-box{
+    min-height: 275px;
+    color: $white;
+    width: 20%;
+    .testimonial-h2{
+        font-family: $montserrat;
+        font-weight: 600!important;
+        line-height: 1.1!important;
+        $size: (32px / $baseFont) + 0em;
+        @include responsive-font-size (1.6em,
+        $size,
+        640px,
+        1200px,
+        0.1em);
+    }
+  }
+
+  .dblue-bg{
+    background-color: $dblue;
+  }
+
+  .lblue-bg{
+    background-color: $blue;
+  }
+
+  .easy-steps{
+    background-image: url('../img/about-us/why-choose-us/col-2-bg.png');
+    background-size: 100% auto;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
+
+  .truck-bg-section{
+    background-image: url('../img/about-us/why-choose-us/truck-bg.png');
+    background-size: 100% auto;
+    background-position: bottom;
+    min-height: 920px;
+    background-repeat: no-repeat;
+  }
+
+  .cstm-section-4{
+    background-image: url('../img/about-us/why-choose-us/section-4-bg.png');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
+
+  
+
+@media only screen and (min-width: 1800px) {
+    .section-two{
+        margin-top: 0!important;
+    }
+}
+
+@media only screen and (max-width: 1040px) {
+    .hide-on-med{
+        display: none;
+    }
+    .cstm-card{
+       width: 32%!important;
+    }
+
+    .service-icon-col{
+        width: 50%!important;
+    }
+}
+
+
+@media only screen and (max-width: 991px) {
+    .nav-on-mobile{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .lg-quote{
+        img{
+            max-width: 100%;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 767px) {
+    .cstm-card{
+        width: 49%!important;
+    }
+
+    .cstm-blue-btn1, .cstm-blue-btn2{
+        min-height: 45px!important;
+        height: auto;
+        margin-top: 10px;
+    }
+    .navbar-nav{
+        .fa-chevron-down{
+            margin-left: 8px;
+        }
+        .dropdown-menu{
+            width: 100%!important;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 575px) {
+    .service-icon-col{
+        width: 100%!important;
+    }
+    .img-container{
+        width: 100%;
+    }
+
+    .hide-on-sm{
+        display: none;
+    }
+    
+    .navbar-brand{
+        img{
+            max-width: 200px;
+        }
+    }
+
+    .md-text{
+        margin-bottom: 15px;
+    }
+
+    .card-row{
+        .cstm-card{
+            max-height: 250px!important;
+            min-height: 250px;
+        }
+    }
+    .blog-card{
+        margin-bottom: 15px;
+    }
+}
