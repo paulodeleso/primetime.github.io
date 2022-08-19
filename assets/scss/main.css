@@ -88,6 +88,10 @@ body {
   color: #fff !important;
 }
 
+.lh1-5 {
+  line-height: 1.2 !important;
+}
+
 .dblue {
   color: #182f45 !important;
 }
@@ -774,6 +778,10 @@ body {
 
 #primetime-culture-main {
   background-image: url("../img/about-us/primetime-culture/primetime-culture-banner.png");
+}
+
+#our-core-values-main {
+  background-image: url("../img/about-us/our-core-values/our-core-values-banner.png");
 }
 
 #why-choose-us-main {
@@ -1737,7 +1745,7 @@ body {
   line-height: 1.1 !important;
   font-size: 2em;
 }
-@media all and (max-width: 640px) {
+@media all and (max-width: 900px) {
   .testimonial-box .testimonial-h2 {
     font-size: 1.6em;
   }
@@ -1749,57 +1757,27 @@ body {
 }
 @media all and (max-width: 1140px) {
   .testimonial-box .testimonial-h2 {
-    font-size: 2.0017857143em;
+    font-size: 1.9253333333em;
   }
 }
-@media all and (max-width: 1083px) {
+@media all and (max-width: 1081px) {
   .testimonial-box .testimonial-h2 {
-    font-size: 1.9935580357em;
+    font-size: 1.8493107407em;
   }
 }
-@media all and (max-width: 1029px) {
+@media all and (max-width: 1023px) {
   .testimonial-box .testimonial-h2 {
-    font-size: 1.97684375em;
+    font-size: 1.7720633333em;
   }
 }
-@media all and (max-width: 977px) {
+@media all and (max-width: 965px) {
   .testimonial-box .testimonial-h2 {
-    font-size: 1.952546131em;
+    font-size: 1.6923240741em;
   }
 }
-@media all and (max-width: 927px) {
+@media all and (max-width: 908px) {
   .testimonial-box .testimonial-h2 {
-    font-size: 1.92159375em;
-  }
-}
-@media all and (max-width: 879px) {
-  .testimonial-box .testimonial-h2 {
-    font-size: 1.8848794643em;
-  }
-}
-@media all and (max-width: 832px) {
-  .testimonial-box .testimonial-h2 {
-    font-size: 1.8422857143em;
-  }
-}
-@media all and (max-width: 787px) {
-  .testimonial-box .testimonial-h2 {
-    font-size: 1.79534375em;
-  }
-}
-@media all and (max-width: 743px) {
-  .testimonial-box .testimonial-h2 {
-    font-size: 1.7436175595em;
-  }
-}
-@media all and (max-width: 700px) {
-  .testimonial-box .testimonial-h2 {
-    font-size: 1.6875em;
-  }
-}
-@media all and (max-width: 659px) {
-  .testimonial-box .testimonial-h2 {
-    font-size: 1.6288675595em;
+    font-size: 1.6115318519em;
   }
 }
 
@@ -1831,6 +1809,70 @@ body {
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 18.5%;
+  height: 370px;
+  border-radius: 10px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flip-card-front {
+  color: #fff;
+}
+
+.flip-lblue {
+  background-color: #26a5de;
+}
+
+.flip-dblue {
+  background-color: #182f45;
+}
+
+.flip-card-back {
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.truck-section {
+  background-image: url("../img/about-us/our-core-values/truck-bg.png");
+  min-height: 800px;
+}
+
+.neg-top {
+  margin-top: -80px;
+}
+
+.footer-v2 {
+  background-image: url("../img/about-us/our-core-values/primetime-footer-2.png") !important;
 }
 
 @media only screen and (min-width: 1800px) {
@@ -1875,6 +1917,9 @@ body {
   .navbar-nav .dropdown-menu {
     width: 100% !important;
   }
+  .testimonial-box {
+    width: 33%;
+  }
 }
 @media only screen and (max-width: 575px) {
   .service-icon-col {
@@ -1898,5 +1943,39 @@ body {
   }
   .blog-card {
     margin-bottom: 15px;
+  }
+  .testimonial-box {
+    width: 50%;
+    min-height: 200px;
+  }
+  #order-1 {
+    order: 1;
+  }
+  #order-2 {
+    order: 2;
+  }
+  #order-3 {
+    order: 4;
+  }
+  #order-4 {
+    order: 3;
+  }
+  #order-5 {
+    order: 5;
+  }
+  #order-6 {
+    order: 6;
+  }
+  #order-7 {
+    order: 8;
+  }
+  #order-8 {
+    order: 7;
+  }
+  #order-9 {
+    order: 9;
+  }
+  #order-10 {
+    order: 10;
   }
 }/*# sourceMappingURL=main.css.map */
