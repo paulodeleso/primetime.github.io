@@ -1894,10 +1894,10 @@ body {
 }
 
 .hide-md {
-  display: none;
+  display: block;
 }
 
-.hide-on-lg {
+.hide-lg {
   display: none;
 }
 
@@ -1959,7 +1959,7 @@ body {
   .flip-card .flip-card-inner .flip-card-front img {
     width: auto !important;
   }
-  .hide-on-lg {
+  .hide-lg {
     display: block;
   }
 }
