@@ -149,6 +149,10 @@ $montserrat: 'Montserrat', sans-serif;
     color: $blue!important;
 }
 
+.desktop-block{
+    height: 100px;
+}
+
 //font-size//
 .cstm-h1{
     font-family: $montserrat;
@@ -1060,7 +1064,28 @@ $montserrat: 'Montserrat', sans-serif;
   .footer-v2{
     background-image: url('../img/about-us/our-core-values/primetime-footer-2.png')!important;
   }
+
+  .bg-dblue{
+    background-color: $dblue;
+  }
+
+  .bg-lblue{
+    background-color: $blue;
+  }
+
+  .z-i1{
+    position: relative;
+    z-index: 2;
+    margin-top: -100px;
+  }
   
+  .hide-md{
+    display: none;
+  }
+
+  .hide-on-lg{
+    display: none;
+  }
 
 @media only screen and (min-width: 1800px) {
     .section-two{
@@ -1078,6 +1103,11 @@ $montserrat: 'Montserrat', sans-serif;
 
     .service-icon-col{
         width: 50%!important;
+    }
+
+    .flip-card{
+         width: 32%!important;
+         margin-bottom: 30px
     }
 }
 
@@ -1101,6 +1131,10 @@ $montserrat: 'Montserrat', sans-serif;
     .cstm-card{
         width: 49%!important;
     }
+    
+    .hide-md{
+        display: none;
+    }
 
     .cstm-blue-btn1, .cstm-blue-btn2{
         min-height: 45px!important;
@@ -1117,6 +1151,19 @@ $montserrat: 'Montserrat', sans-serif;
     }
     .testimonial-box{
         width: 33%;
+    }
+    .flip-card{
+        width: 100%!important;
+        .flip-card-inner{
+            .flip-card-front{
+                img{
+                    width: auto!important;
+                }
+            }
+        }
+    }
+    .hide-on-lg{
+        display: block;
     }
 }
 

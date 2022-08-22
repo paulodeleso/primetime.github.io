@@ -100,6 +100,10 @@ body {
   color: #26a5de !important;
 }
 
+.desktop-block {
+  height: 100px;
+}
+
 .cstm-h1 {
   font-family: "Montserrat", sans-serif;
   font-weight: 800 !important;
@@ -1875,6 +1879,28 @@ body {
   background-image: url("../img/about-us/our-core-values/primetime-footer-2.png") !important;
 }
 
+.bg-dblue {
+  background-color: #182f45;
+}
+
+.bg-lblue {
+  background-color: #26a5de;
+}
+
+.z-i1 {
+  position: relative;
+  z-index: 2;
+  margin-top: -100px;
+}
+
+.hide-md {
+  display: none;
+}
+
+.hide-on-lg {
+  display: none;
+}
+
 @media only screen and (min-width: 1800px) {
   .section-two {
     margin-top: 0 !important;
@@ -1889,6 +1915,10 @@ body {
   }
   .service-icon-col {
     width: 50% !important;
+  }
+  .flip-card {
+    width: 32% !important;
+    margin-bottom: 30px;
   }
 }
 @media only screen and (max-width: 991px) {
@@ -1906,6 +1936,9 @@ body {
   .cstm-card {
     width: 49% !important;
   }
+  .hide-md {
+    display: none;
+  }
   .cstm-blue-btn1, .cstm-blue-btn2 {
     min-height: 45px !important;
     height: auto;
@@ -1919,6 +1952,15 @@ body {
   }
   .testimonial-box {
     width: 33%;
+  }
+  .flip-card {
+    width: 100% !important;
+  }
+  .flip-card .flip-card-inner .flip-card-front img {
+    width: auto !important;
+  }
+  .hide-on-lg {
+    display: block;
   }
 }
 @media only screen and (max-width: 575px) {
